@@ -3,8 +3,17 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px; }
 
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home.container.container > div:nth-of-type(6) {
+    grid-column: 1 / 3;
+    grid-row: 3; }
+  .home.container.container > div:nth-of-type(10) {
+    grid-column: 1/3;
+    grid-row: 5; } }
+
 .container > div {
-  cursor: pointer;
   height: 210px;
   background-size: cover;
   background-attachment: fixed;
@@ -14,26 +23,26 @@
   justify-content: center;
   text-align: center;
   transition: all 0.5s ease-in; }
+  .container > div.clickable {
+    cursor: pointer; }
 
 .container > div:hover {
   opacity: 0.45; }
+
+@media (min-width: 700px) {
+  .home.container > div:nth-of-type(1) {
+    grid-column: 1 / 3; }
+  .home.container > div:nth-of-type(6) {
+    grid-column: 3 / 5; }
+  .home.container > div:nth-of-type(9) {
+    grid-column: 3 / 5; }
+  .home.container > div:nth-of-type(10) {
+    grid-column: 1 / 3; } }
 
 .container > div:hover > p {
   transition: all .4s ease;
   -webkit-transition: all .4s ease;
   font-size: 30px; }
-
-.container > div:nth-of-type(1) {
-  grid-column: 1 / 3; }
-
-.container > div:nth-of-type(6) {
-  grid-column: 3 / 5; }
-
-.container > div:nth-of-type(9) {
-  grid-column: 3 / 5; }
-
-.container > div:nth-of-type(10) {
-  grid-column: 1 / 3; }
 
 .bg1 {
   background: url("../img/292156.jpg");
@@ -63,6 +72,33 @@
         max-width: 610px;
     }
 }*/
+@media (max-width: 700px) {
+  .container > div.expanded {
+    grid-column: auto / span 2;
+    grid-row: auto / span 2;
+    height: auto;
+    min-height: 210px;
+    transition: grid-row 1s; } }
+
+@media (min-width: 700px) {
+  .container > div.expanded {
+    grid-column: auto / span 3;
+    grid-row: auto / span 3;
+    height: auto;
+    min-height: 210px;
+    transition: grid-row 1s; } }
+
+.about-me {
+  grid-template-rows: repeat(5, 1fr); }
+
+.tile-expanded {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, minmax(200px, auto));
+  grid-gap: 10px;
+  margin: 0 auto;
+  grid-template-areas: "tile-expanded-header tile-expanded-header tile-expanded-header" "tile-expanded-header tile-expanded-body tile-expanded-body" "tile-expanded-header tile-expanded-body tile-expanded-body"; }
+
 #blazor-error-ui {
   background: lightyellow;
   bottom: 0;
